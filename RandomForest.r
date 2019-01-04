@@ -7,6 +7,9 @@ credit=read.csv(file.choose(),header=T,sep=",")
 #plot
 barplot(table(credit$DEFAULT))
 
+#prepare data
+credit$DEFAULT=as.factor(credit$DEFAULT)
+
 #sample
 set.seed(1234)
 population=sample(nrow(credit), 0.75*nrow(credit))
