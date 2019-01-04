@@ -1,0 +1,8 @@
+ratings=read.table(file.choose(), header=T, sep='\t')
+View(ratings)
+summary(ratings)
+library(ggplot2)
+cor(ratings[2:5])
+ggplot(ratings,aes(x=ambience,y=rating))+geom_point(color="orange")+stat_smooth(method="lm")
+ggplot(ratings,aes(x=(food+service+ambience),y=rating))+geom_point()+geom_smooth()
+lm(rating~(food+service+ambience), ratings)
